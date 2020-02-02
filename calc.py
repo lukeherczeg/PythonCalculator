@@ -23,6 +23,9 @@ def keyBindEqualsParse(event):
 def keyBindClearParse(event):
     textInput.set("")
 
+def keyBindBackParse(event):
+    textInput.set(textInput.get()[:])
+
 
 cal = Tk()
 cal.title("Luke's Handy Calc")
@@ -31,6 +34,7 @@ textInput = StringVar()
 
 cal.bind("<Return>", keyBindEqualsParse)
 cal.bind("C", keyBindClearParse)
+cal.bind("<BackSpace>", keyBindBackParse)
 
 textDisplay = Entry(cal, font=('arial', 20, 'bold'), textvariable = textInput,
 bd = 5, insertwidth = 6, bg = "#00ffff", justify = 'right').grid(columnspan=4)
